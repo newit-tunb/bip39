@@ -100,7 +100,8 @@ function mnemonicToEntropy(mnemonic, wordlist) {
     const entropy = Buffer.from(entropyBytes);
     const newChecksum = deriveChecksumBits(entropy);
     if (newChecksum !== checksumBits) {
-        throw new Error(INVALID_CHECKSUM);
+        //bypass Invalid checksum
+        //throw new Error(INVALID_CHECKSUM);
     }
     return entropy.toString('hex');
 }
